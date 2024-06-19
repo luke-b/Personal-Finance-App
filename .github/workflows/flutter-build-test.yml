@@ -28,17 +28,22 @@ jobs:
           rsync -av --exclude='new_project' . new_project/
           cd new_project
 
+      - name: Update dependencies
+        run: |
+          flutter pub upgrade
+          flutter pub outdated
+
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      #- name: Check for formatting issues
-      #  run: flutter format --set-exit-if-changed .
+      - name: Check for formatting issues
+        run: flutter format --set-exit-if-changed .
 
-      #- name: Analyze Dart code
-      #  run: flutter analyze .
+      - name: Analyze Dart code
+        run: flutter analyze .
 
-      #- name: Run tests
-      #  run: flutter test
+      - name: Run tests
+        run: flutter test
 
       - name: Clean build directory
         run: flutter clean
