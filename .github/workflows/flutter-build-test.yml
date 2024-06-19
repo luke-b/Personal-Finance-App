@@ -1,0 +1,39 @@
+name: Flutter Build and Test APK
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.0.0' # Specify the Flutter version you want to use
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build test APK
+      run: flutter build apk --debug --target=test_driver/app.dart
+
+    - name: Move APK to subdirectory
+      run: |
+        mkdir -p ./artifacts/apk
+        mv build/app/outputs/flutter-apk/app-debug.apk ./artifacts/apk/test-app.apk
+
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-apk
+        path: ./artifacts/apk/test-app.apk
