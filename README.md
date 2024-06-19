@@ -12,7 +12,7 @@ Welcome to the Personal Finance App repository! This Flutter application helps y
 
 ## Screenshots
 
-(Add screenshots or GIFs here to showcase the app's UI and features)
+
 
 ## Installation
 
