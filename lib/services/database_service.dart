@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:personal_finance_app/models/user.dart';
-import 'package:personal_finance_app/models/transaction.dart';
+import 'package:personal_finance_app/models/transaction.dart' as my_transaction;
 import 'package:personal_finance_app/models/budget.dart';
 import 'package:personal_finance_app/models/financial_goal.dart';
 
@@ -87,11 +87,11 @@ class DatabaseService {
     return null;
   }
 
-  Future<List<Transaction>> getTransactions() async {
+  Future<List<my_transaction.Transaction>> getTransactions() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('transactions');
     return List.generate(maps.length, (i) {
-      return Transaction.fromMap(maps[i]);
+      return my_transaction.Transaction.fromMap(maps[i]);
     });
   }
 
