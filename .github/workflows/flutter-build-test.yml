@@ -22,6 +22,12 @@ jobs:
         with:
           channel: 'beta'
 
+      - name: Create new Flutter project
+        run: |
+          flutter create -t app new_project
+          cp -r ./* new_project/
+          cd new_project
+
       - name: Get Flutter dependencies
         run: flutter pub get
 
