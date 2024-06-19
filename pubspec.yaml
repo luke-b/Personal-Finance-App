@@ -26,8 +26,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
   lints: ^4.0.0
-  test_api: ^0.7.2
-  vm_service: ^14.2.4
+  #test_api: ^0.7.2
+  #vm_service: ^14.2.4
   
 # Additional Flutter-specific settings.
 flutter:
