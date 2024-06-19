@@ -22,11 +22,10 @@ jobs:
         with:
           channel: 'beta'
 
-      # New Project creation added
       - name: Create new Flutter project
         run: |
           flutter create -t app new_project
-          cp -r ./* new_project/
+          rsync -av --exclude='new_project' . new_project/
           cd new_project
 
       - name: Get Flutter dependencies
