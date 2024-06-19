@@ -22,6 +22,7 @@ jobs:
         with:
           channel: 'beta'
 
+      # New Project creation added
       - name: Create new Flutter project
         run: |
           flutter create -t app new_project
