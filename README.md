@@ -228,5 +228,61 @@ Entity-Relationship (ER) analysis:
 - **User 1:N Budget**
 - **User 1:N FinancialGoal**
 
+---
+
+The scope for the personal finance management app:
+
+### 1. User Authentication
+- **Third-party authentication services**: No, stick to email/password registration and login for simplicity.
+- **Registration and login forms**: Basic email/password forms are sufficient.
+- **Security measures**: Standard password hashing and salting for security.
+
+### 2. Data Storage and Management
+- **Database technology**: Use local storage with the option to export data to CSV for backup.
+- **Data synchronization**: Not required as local storage is sufficient.
+- **Data encryption and privacy**: Basic encryption for local storage to protect user data.
+
+### 3. User Interface Design
+- **UI designs or themes**: Minimalist design with a sleek, intuitive interface.
+- **Visual elements**: Simple, clean icons and a neutral color scheme.
+- **Navigation**: Use a bottom navigation bar for easy access to key sections.
+
+### 4. Transaction Management
+- **Transaction types**: Focus on income and expenses.
+- **Transaction categories**: Include essential categories like groceries, utilities, entertainment.
+- **Recurring transactions**: Not a priority; can be considered in future updates.
+
+### 5. Budget and Goal Setting
+- **Budget types**: Support monthly budgets initially.
+- **Budget alerts**: Set basic notifications for budget thresholds.
+- **Goal tracking**: Use simple progress bars to show goal progress.
+
+### 6. Charts and Analytics
+- **Chart types**: Include basic bar charts for income vs. expenses.
+- **Chart data**: Focus on monthly income and spending comparisons.
+- **Interactive elements**: Basic chart functionality without advanced interactions.
+
+### 7. Feedback and Support
+- **Feedback submission**: Provide an in-app feedback form.
+- **Help section**: Include a basic FAQ section within the app.
+- **User support**: No dedicated support; rely on feedback form for user inquiries.
+
+### 8. Export and Backup
+- **Export data**: Allow users to export transactions to CSV.
+- **Cloud backup**: Not initially; consider in future updates.
+- **Data import**: Not initially; consider in future updates.
+
+### 9. Monetization and Pricing
+- **Monetization strategy**: Free with no ads; consider premium features in future updates.
+- **Premium features**: Not initially; consider advanced features in future updates.
+- **In-app purchases**: Not initially; consider in future updates.
+
+### 10. Testing and Deployment
+- **Testing types**: Conduct basic unit testing and manual user testing.
+- **Testing frameworks**: Use Flutter's built-in testing frameworks for unit testing.
+- **Deployment**: Plan to deploy the app on Google Play initially.
+
+
+
 
 
