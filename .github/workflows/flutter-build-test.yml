@@ -32,9 +32,10 @@ jobs:
         if [ -d "lib" ]; then rm -rf lib; fi
         if [ -d "test" ]; then rm -rf test; fi
 
-    - name: Move existing code and assets
+    - name: Move new project directories
       run: |
         mv lib new_project/
+        mv test new_project/
         mv assets new_project/
         mv pubspec.yaml new_project/
         # Add other directories and files as needed
