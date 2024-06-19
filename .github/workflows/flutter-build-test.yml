@@ -25,7 +25,7 @@ jobs:
       run: flutter pub get
 
     - name: Build test APK
-      run: flutter build apk --debug --target=test_driver/app.dart
+      run: flutter build apk --debug --target=lib/main.dart
 
     - name: Move APK to subdirectory
       run: |
