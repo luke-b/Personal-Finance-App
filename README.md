@@ -1,5 +1,7 @@
 # Personal Finance App
 
+[![Flutter CI](https://github.com/luke-b/Personal-Finance-App/actions/workflows/flutter-build-test.yml/badge.svg?branch=main)](https://github.com/luke-b/Personal-Finance-App/actions/workflows/flutter-build-test.yml)
+
 Welcome to the Personal Finance App repository! This Flutter application helps you manage your personal finances by tracking transactions, setting budgets, and achieving financial goals.
 
 ## Features
