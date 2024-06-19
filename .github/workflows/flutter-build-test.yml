@@ -30,32 +30,24 @@ jobs:
 
       - name: Update dependencies
         run: |
+          cd new_project
           flutter pub upgrade
           flutter pub outdated
 
       - name: Get Flutter dependencies
-        run: flutter pub get
+        run: cd new_project && flutter pub get
 
-      - name: Run flutter pub outdated
-        run: flutter pub outdated
-
-      #- name: Check for formatting issues
-      #  run: flutter format --set-exit-if-changed .
-
-      #- name: Analyze Dart code
-      #  run: flutter analyze .
-
-      #- name: Run tests
-      #  run: flutter test
+      - name: Check for outdated packages
+        run: cd new_project && flutter pub outdated
 
       - name: Clean build directory
-        run: flutter clean
+        run: cd new_project && flutter clean
 
       - name: Build debug APK
-        run: flutter build apk --debug
+        run: cd new_project && flutter build apk --debug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v2
         with:
           name: debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: new_project/build/app/outputs/flutter-apk/app-debug.apk
