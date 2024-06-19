@@ -1,0 +1,42 @@
+name: personal_finance_app
+description: A personal finance management app.
+
+# The version. It follows the semantic versioning format.
+version: 1.0.0+1
+
+# The environment section specifies the Flutter SDK version constraints.
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+# The dependencies section lists 
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.0
+  sqflite: ^2.0.0+4
+  path_provider: ^2.0.2
+  charts_flutter: ^0.12.0
+
+# The dev_dependencies section lists packages used during development.
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+# Additional Flutter-specific settings.
+flutter:
+  uses-material-design: true
+
+  # The assets section lists all the files and directories that should be included 
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  # Custom fonts.
+  fonts:
+    - family: CustomFont
+      fonts:
+        - asset: assets/fonts/CustomFont-Regular.ttf
+        - asset: assets/fonts/CustomFont-Bold.ttf
+          weight: 700
