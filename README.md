@@ -151,3 +151,82 @@ Contains test files for models, services, and widgets:
 
 #### `pubspec.yaml`
 Contains dependencies and metadata for the project.
+
+---
+
+Entity-Relationship (ER) analysis:
+
+### Entities:
+1. **User**
+   - Attributes: UserID, Name, Email, Password, Age
+
+2. **Account**
+   - Attributes: AccountID, UserID, AccountName, Balance
+
+3. **Transaction**
+   - Attributes: TransactionID, AccountID, Date, Amount, Category, Description
+
+4. **Budget**
+   - Attributes: BudgetID, UserID, Category, Amount, Period
+
+5. **FinancialGoal**
+   - Attributes: GoalID, UserID, GoalName, TargetAmount, CurrentAmount, Deadline
+
+### Relationships:
+1. **User-Account**
+   - One user can have multiple accounts (1:N)
+
+2. **Account-Transaction**
+   - One account can have multiple transactions (1:N)
+
+3. **User-Budget**
+   - One user can set multiple budgets (1:N)
+
+4. **User-FinancialGoal**
+   - One user can set multiple financial goals (1:N)
+
+### ER Diagram Representation:
+- **User**
+  - UserID (PK)
+  - Name
+  - Email
+  - Password
+  - Age
+
+- **Account**
+  - AccountID (PK)
+  - UserID (FK)
+  - AccountName
+  - Balance
+
+- **Transaction**
+  - TransactionID (PK)
+  - AccountID (FK)
+  - Date
+  - Amount
+  - Category
+  - Description
+
+- **Budget**
+  - BudgetID (PK)
+  - UserID (FK)
+  - Category
+  - Amount
+  - Period
+
+- **FinancialGoal**
+  - GoalID (PK)
+  - UserID (FK)
+  - GoalName
+  - TargetAmount
+  - CurrentAmount
+  - Deadline
+
+### Relationships:
+- **User 1:N Account**
+- **Account 1:N Transaction**
+- **User 1:N Budget**
+- **User 1:N FinancialGoal**
+
+
+
