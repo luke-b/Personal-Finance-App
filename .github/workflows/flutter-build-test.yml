@@ -27,17 +27,12 @@ jobs:
         mv new_project/* .
         rm -rf new_project
 
-    - name: Remove existing directories if they exist
+    - name: Merge new project directories
       run: |
-        if [ -d "lib" ]; then rm -rf lib; fi
-        if [ -d "test" ]; then rm -rf test; fi
-
-    - name: Move new project directories
-      run: |
-        mv lib new_project/
-        mv test new_project/
-        mv assets new_project/
-        mv pubspec.yaml new_project/
+        rsync -a new_project/lib/ lib/
+        rsync -a new_project/test/ test/
+        rsync -a new_project/assets/ assets/
+        cp new_project/pubspec.yaml pubspec.yaml
         # Add other directories and files as needed
 
     - name: Cache Flutter dependencies
