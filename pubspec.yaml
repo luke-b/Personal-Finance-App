@@ -16,12 +16,19 @@ dependencies:
   sqflite: ^2.2.5+1
   path_provider: ^2.1.2
   charts_flutter_new: ^0.12.0
+  collection: ^1.19.0
+  intl: ^0.19.0
+  material_color_utilities: ^0.12.0
+  meta: ^1.15.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
-
+  flutter_lints: ^4.0.0
+  lints: ^4.0.0
+  test_api: ^0.7.2
+  vm_service: ^14.2.4
+  
 # Additional Flutter-specific settings.
 flutter:
   uses-material-design: true
