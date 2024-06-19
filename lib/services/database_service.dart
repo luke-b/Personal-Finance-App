@@ -36,6 +36,9 @@ class DatabaseService {
         password TEXT
       )
     ''');
+
+    await _insertDefaultUser(db);
+
     await db.execute('''
       CREATE TABLE transactions (
         id TEXT PRIMARY KEY,
@@ -63,6 +66,21 @@ class DatabaseService {
         deadline TEXT
       )
     ''');
+  }
+
+  Future<void> _insertDefaultUser(Database db) async {
+    var defaultUser = User(
+      id: 'default_user_id',
+      name: 'Default User',
+      email: 'default@example.com',
+      password: 'password', // Make sure to hash passwords in a real app
+    );
+
+    await db.insert(
+      'users',
+      defaultUser.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<void> insertUser(User user) async {
