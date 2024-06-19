@@ -27,6 +27,11 @@ jobs:
         mv new_project/* .
         rm -rf new_project
 
+    - name: Remove existing directories if they exist
+      run: |
+        if [ -d "lib" ]; then rm -rf lib; fi
+        if [ -d "test" ]; then rm -rf test; fi
+
     - name: Move existing code and assets
       run: |
         mv lib new_project/
