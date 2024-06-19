@@ -21,8 +21,35 @@ jobs:
       with:
         flutter-version: '3.0.0' # Specify the Flutter version you want to use
 
+    - name: Create new Flutter project
+      run: |
+        flutter create -t app new_project
+        mv new_project/* .
+        rm -rf new_project
+
+    - name: Move existing code and assets
+      run: |
+        mv lib new_project/
+        mv assets new_project/
+        mv pubspec.yaml new_project/
+        # Add other directories and files as needed
+
+    - name: Cache Flutter dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.pub-cache
+        key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-flutter-
+
     - name: Install dependencies
       run: flutter pub get
+
+    - name: Check Flutter format
+      run: flutter format --set-exit-if-changed .
+
+    - name: Run tests
+      run: flutter test
 
     - name: Build test APK
       run: flutter build apk --debug --target=lib/main.dart
