@@ -16,7 +16,7 @@ dependencies:
   provider: ^6.0.0
   sqflite: ^2.0.0+4
   path_provider: ^2.0.2
-  charts_flutter: ^0.12.0
+  charts_flutter_new: ^0.12.0
 
 # The dev_dependencies section lists packages used during development.
 dev_dependencies:
