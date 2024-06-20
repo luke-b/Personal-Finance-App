@@ -14,7 +14,7 @@ Welcome to the Personal Finance App repository! This Flutter application helps y
 
 ## Screenshots
 
-
+![Home Screen Screenshot](https://github.com/luke-b/Personal-Finance-App/blob/main/screenshot.jpeg?raw=true)
 
 ## Installation
 
@@ -37,6 +37,13 @@ Welcome to the Personal Finance App repository! This Flutter application helps y
    ```sh
    flutter run
    ```
+
+5. **Default login:**
+   ```sh
+   email: default@example.com
+   password: password
+   ```
+   
 
 ## Dependencies
 
