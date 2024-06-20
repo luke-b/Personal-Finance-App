@@ -4,6 +4,9 @@
 
 Welcome to the Personal Finance App repository! This Flutter application helps you manage your personal finances by tracking transactions, setting budgets, and achieving financial goals.
 
+> [!NOTE]
+> The entire code base has been crafted by the DeepSeek-Coder AI model, tailored to the specifications detailed below.
+
 ## Features
 
 - **User Authentication**: Secure login and registration functionality.
