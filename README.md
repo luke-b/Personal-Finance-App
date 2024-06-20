@@ -49,7 +49,7 @@ Welcome to the Personal Finance App repository! This Flutter application helps y
 
 - [Flutter](https://flutter.dev/)
 - [sqflite](https://pub.dev/packages/sqflite)
-- [charts_flutter](https://pub.dev/packages/charts_flutter)
+- [charts_flutter_new](https://pub.dev/packages/charts_flutter_new)
 
 ## Contributing
 
