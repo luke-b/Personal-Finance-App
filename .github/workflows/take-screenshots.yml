@@ -20,13 +20,13 @@ jobs:
         channel: 'beta'
 
     - name: Install dependencies
-      run: flutter pub get  # Updated to change directory before installing dependencies
+      run: cd new_project & flutter pub get  # Updated to change directory before installing dependencies
 
     - name: Download build artifacts
       uses: actions/download-artifact@v3
       with:
         name: debug-apk
-        path: new_project/build/app/outputs/flutter-apk  # Ensure the correct path is used
+        path: build/app/outputs/flutter-apk  # Ensure the correct path is used
 
     - name: Install markdown-include
       run: pip install markdown-include
