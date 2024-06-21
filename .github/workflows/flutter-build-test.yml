@@ -51,3 +51,6 @@ jobs:
         with:
           name: debug-apk
           path: new_project/build/app/outputs/flutter-apk/app-debug.apk
+
+     - name: Display structure of files
+       run: ls -R new_project/build/app/outputs/flutter-apk

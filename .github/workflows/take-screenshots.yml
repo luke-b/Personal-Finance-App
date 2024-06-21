@@ -22,11 +22,16 @@ jobs:
     - name: Install dependencies
       run: flutter pub get 
 
+
+    - uses: actions/download-artifact@v3
+    - name: Display structure of downloaded files
+      run: ls -R
+
     - name: Download build artifacts
       uses: actions/download-artifact@v3
       with:
         name: debug-apk
-
+        path: new_project/build/app/outputs/flutter-apk 
 
     - name: Install markdown-include
       run: pip install markdown-include
