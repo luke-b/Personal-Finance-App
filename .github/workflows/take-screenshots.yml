@@ -20,7 +20,7 @@ jobs:
         channel: 'beta'
 
     - name: Install dependencies
-      run: cd new_project && flutter pub get  # Updated to change directory before installing dependencies
+      run: flutter pub get  # Updated to change directory before installing dependencies
 
     - name: Download build artifacts
       uses: actions/download-artifact@v3
@@ -34,7 +34,6 @@ jobs:
     - name: Run tests and take screenshots
       run: |
         sudo apt-get install -y xvfb
-        cd new_project  # Change to the new_project directory before running the tests
         xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"  # Ensure correct relative path
         mkdir -p ../screenshots  # Create the screenshots directory in the parent directory
         cp build/screenshots/*.png ../screenshots/  # Copy screenshots to the parent directory
