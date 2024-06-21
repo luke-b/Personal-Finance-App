@@ -26,7 +26,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: debug-apk
-        path: new_project/build/app/outputs/flutter-apk/app-debug.apk
+        path: new_project/build/app/outputs/flutter-apk/
 
     - name: Install markdown-include
       run: pip install markdown-include
