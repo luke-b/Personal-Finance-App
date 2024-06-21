@@ -52,33 +52,30 @@ jobs:
           name: debug-apk
           path: new_project/build/app/outputs/flutter-apk/app-debug.apk
 
+      - name: Install markdown-include
+        run: pip install markdown-include
 
-# Screenshots
+      - name: Run tests and take screenshots
+        run: |
+          sudo apt-get install -y xvfb
+          xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"
+          mkdir -p screenshots
+          cp build/screenshots/*.png screenshots/
 
-    - name: Install markdown-include
-      run: pip install markdown-include
+      - name: Ensure screenshots.md exists
+        run: |
+          echo "## Screenshots" > screenshots.md
+          for screenshot in screenshots/*.png; do
+            echo "![Screenshot](./$screenshot)" >> screenshots.md
+          done
 
-    - name: Run tests and take screenshots
-      run: |
-        sudo apt-get install -y xvfb
-        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"
-        mkdir -p screenshots
-        cp build/screenshots/*.png screenshots/
+      - name: Generate Combined README.md
+        run: markdown-include README.md > COMBINED_README.md
 
-    - name: Ensure screenshots.md exists
-      run: |
-        echo "## Screenshots" > screenshots.md
-        for screenshot in screenshots/*.png; do
-          echo "![Screenshot](./$screenshot)" >> screenshots.md
-        done
-
-    - name: Generate Combined README.md
-      run: markdown-include README.md > COMBINED_README.md
-
-    - name: Commit and push screenshots
-      run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'github-actions@github.com'
-        git add screenshots/ screenshots.md COMBINED_README.md
-        git commit -m 'Update screenshots and README.md'
-        git push
+      - name: Commit and push screenshots
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add screenshots/ screenshots.md COMBINED_README.md
+          git commit -m 'Update screenshots and README.md'
+          git push
