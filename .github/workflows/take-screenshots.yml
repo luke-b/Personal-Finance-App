@@ -23,10 +23,10 @@ jobs:
       run: flutter pub get 
 
     - name: Download build artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v2
       with:
         name: debug-apk
-        path: build/app/outputs/flutter-apk  # Ensure the correct path is used
+        path: new_project/build/app/outputs/flutter-apk/app-debug.apk
 
     - name: Install markdown-include
       run: pip install markdown-include
