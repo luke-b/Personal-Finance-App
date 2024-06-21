@@ -20,13 +20,13 @@ jobs:
         channel: 'beta'
 
     - name: Install dependencies
-      run: flutter pub get
+      run: cd new_project && flutter pub get  # Updated to change directory before installing dependencies
 
     - name: Download build artifacts
       uses: actions/download-artifact@v3
       with:
         name: debug-apk
-        path: new_project/build/app/outputs/flutter-apk
+        path: new_project/build/app/outputs/flutter-apk  # Ensure the correct path is used
 
     - name: Install markdown-include
       run: pip install markdown-include
@@ -34,13 +34,19 @@ jobs:
     - name: Run tests and take screenshots
       run: |
         sudo apt-get install -y xvfb
-        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"
-        mkdir -p screenshots
-        cp build/screenshots/*.png screenshots/
+        cd new_project  # Change to the new_project directory before running the tests
+        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"  # Ensure correct relative path
+        mkdir -p ../screenshots  # Create the screenshots directory in the parent directory
+        cp build/screenshots/*.png ../screenshots/  # Copy screenshots to the parent directory
 
     - name: Ensure screenshots.md exists
       run: |
-        echo "## Screenshots" > screenshots.md
+        if [ ! -f screenshots.md ]; then
+          echo "## Screenshots" > screenshots.md
+        fi
+
+    - name: Update screenshots.md
+      run: |
         for screenshot in screenshots/*.png; do
           echo "![Screenshot](./$screenshot)" >> screenshots.md
         done
