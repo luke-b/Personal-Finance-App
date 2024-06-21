@@ -25,7 +25,7 @@ jobs:
     - name: Download build artifacts
       uses: actions/download-artifact@v2
       with:
-        name: build
+        name: debug-apk
         path: new_project/build/app/outputs/flutter-apk
 
     - name: Install markdown-include
