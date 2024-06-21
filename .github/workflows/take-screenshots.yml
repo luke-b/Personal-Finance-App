@@ -41,7 +41,7 @@ jobs:
 
         DEVICE_ID=$(flutter devices | grep -oP '(?<=• )[\w-]+(?=\s+•)')
         echo "Using device ID: $DEVICE_ID"
-        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="./test_driver/screenshot.dart" -d linux
+        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="./test_driver/screenshot.dart" -d web
         
         mkdir -p ../screenshots  # Create the screenshots directory in the parent directory
         cp build/screenshots/*.png ../screenshots/  # Copy screenshots to the parent directory
