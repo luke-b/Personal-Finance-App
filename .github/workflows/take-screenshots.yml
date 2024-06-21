@@ -38,7 +38,11 @@ jobs:
         echo "List of files before cd:"
         ls -R
         flutter --version
-        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="./test_driver/screenshot.dart"  # Ensure correct relative path
+
+        DEVICE_ID=$(flutter devices | grep -oP '(?<=• )[\w-]+(?=\s+•)')
+        echo "Using device ID: $DEVICE_ID"
+        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="./test_driver/screenshot.dart" -d "$DEVICE_ID"
+        
         mkdir -p ../screenshots  # Create the screenshots directory in the parent directory
         cp build/screenshots/*.png ../screenshots/  # Copy screenshots to the parent directory
 
