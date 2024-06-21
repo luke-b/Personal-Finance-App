@@ -26,6 +26,11 @@ dev_dependencies:
   lints: any
   test_api: any
   vm_service: any
+  flutter_driver:
+    sdk: flutter
+  test: any
+  integration_test:
+    sdk: flutter
 
 dependency_overrides:
   cupertino_icons: any
