@@ -1,0 +1,57 @@
+name: Take Screenshots
+
+on:
+  workflow_run:
+    workflows: ["Flutter CI"]
+    types:
+      - completed
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'beta'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: new_project/build/app/outputs/flutter-apk
+
+    - name: Install markdown-include
+      run: pip install markdown-include
+
+    - name: Run tests and take screenshots
+      run: |
+        sudo apt-get install -y xvfb
+        xvfb-run -s "-screen 0 360x800x24" flutter drive --target="test_driver/screenshot_test.dart"
+        mkdir -p screenshots
+        cp build/screenshots/*.png screenshots/
+
+    - name: Ensure screenshots.md exists
+      run: |
+        echo "## Screenshots" > screenshots.md
+        for screenshot in screenshots/*.png; do
+          echo "![Screenshot](./$screenshot)" >> screenshots.md
+        done
+
+    - name: Generate Combined README.md
+      run: markdown-include README.md > COMBINED_README.md
+
+    - name: Commit and push screenshots
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add screenshots/ screenshots.md COMBINED_README.md
+        git commit -m 'Update screenshots and README.md'
+        git push
