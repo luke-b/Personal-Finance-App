@@ -23,7 +23,7 @@ jobs:
       run: flutter pub get
 
     - name: Download build artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: debug-apk
         path: new_project/build/app/outputs/flutter-apk
