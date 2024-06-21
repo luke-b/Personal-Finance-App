@@ -47,7 +47,7 @@ jobs:
         run: cd new_project && flutter build apk --debug
 
       - name: Upload debug APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: debug-apk
           path: new_project/build/app/outputs/flutter-apk/app-debug.apk
