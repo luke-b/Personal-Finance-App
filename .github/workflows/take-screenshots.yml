@@ -20,7 +20,7 @@ jobs:
         channel: 'beta'
 
     - name: Install dependencies
-      run: cd new_project & flutter pub get  # Updated to change directory before installing dependencies
+      run: cd new_project && flutter pub get  # Updated to change directory before installing dependencies
 
     - name: Download build artifacts
       uses: actions/download-artifact@v3
