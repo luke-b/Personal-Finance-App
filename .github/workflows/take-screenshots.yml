@@ -30,33 +30,12 @@ jobs:
     - name: Install markdown-include
       run: pip install markdown-include
 
- 
-    - name: Run Flutter Driver tests
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        target: ${{ matrix.target }}
-        api-level: ${{ matrix.api-level }}
-        arch: x86_64
-        profile: Nexus 6
-        script: flutter drive --target="./test_driver/screenshot.dart"
-
     - name: Run tests and take screenshots
       run: |
         sudo apt-get install -y xvfb
-        echo "Current directory before cd:"
-        pwd
-        echo "List of files before cd:"
-        ls -R
-        flutter --version
-
-        #DEVICE_ID=$(flutter devices | grep -oP '(?<=• )[\w-]+(?=\s+•)')
-        #echo "Using device ID: $DEVICE_ID"
-        #xvfb-run -s "-screen 0 360x800x24" flutter drive --target="./test_driver/screenshot.dart" -d web
-
         export DISPLAY=:99
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
         flutter drive --target="./test_driver/screenshot.dart"
-        
         mkdir -p ../screenshots  # Create the screenshots directory in the parent directory
         cp build/screenshots/*.png ../screenshots/  # Copy screenshots to the parent directory
 
