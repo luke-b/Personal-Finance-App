@@ -19,6 +19,11 @@ Welcome to the Personal Finance App repository! This Flutter application helps y
 
 ![Home Screen Screenshot](https://github.com/luke-b/Personal-Finance-App/blob/main/screenshot.jpeg?raw=true)
 
+## UI Design
+
+![Home Screen Screenshot](https://github.com/luke-b/Personal-Finance-App/blob/main/ui-design1.png?raw=true)
+
+
 ## Installation
 
 1. **Clone the repository:**
